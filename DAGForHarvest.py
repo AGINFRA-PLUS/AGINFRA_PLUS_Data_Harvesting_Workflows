@@ -20,19 +20,19 @@ dag = DAG('Aginfra Harvesting', default_args=default_args, schedule_interval=tim
 
 e1_Aginfra_harvesting = BashOperator(dag=dag,
                               task_id='Aginfra_harvesting',
-                              bash_command='path/Harvest_from_Aginfra.py ')
+                              bash_command='python3 path/HarvestfromAginfra.py ')
 
 e3_Zenodo_harvesting = BashOperator(dag=dag,
                               task_id='Zenodo_harvesting',
-                              bash_command='path/Harvest_from_Zenodo.py ')
+                              bash_command='python3 path/HarvestfromZenodo.py ')
 
 e5_Openaire_harvesting = BashOperator(dag=dag,
                               task_id='Openaire_harvesting',
-                              bash_command='path/Harvest_from_Openairepy ')
+                              bash_command='python3 path/HarvestfromOpenairepy ')
 
 e7_Gardian_harvesting = BashOperator(dag=dag,
                               task_id='Gardian_harvesting',
-                              bash_command='path/Harvest_from_Gardian.py ')
+                              bash_command='python3 path/HarvestfromGardian.py ')
 
 
 

@@ -16,24 +16,24 @@ default_args = {
     'email_on_failure': True
 }
 
-dag = DAG('Aginfra Harvesting', default_args=default_args, schedule_interval=timedelta(days=1))
+dag = DAG('AginfraTransformSentToDB', default_args=default_args, schedule_interval=timedelta(days=1))
 
 
 e2_Aginfra_storage = BashOperator(dag=dag,
-                              task_id='Aginfra_storage',
-                              bash_command='path/AginfraTransfSendToDB.py ')
+                              task_id='AginfraStorage',
+                              bash_command='python3 path/AginfraTransfSendToDB.py ')
 
 e4_Zenodo_storage = BashOperator(dag=dag,
-                              task_id='Zenodo_storage',
-                              bash_command='path/ZenodoTransfSendToDB.py ')
+                              task_id='ZenodoStorage',
+                              bash_command='python3 path/ZenodoTransfSendToDB.py ')
 
 e6_Openaire_storage = BashOperator(dag=dag,
-                              task_id='Openaire_storage',
-                              bash_command='path/OpenaireTransfSendToDB.py ')
+                              task_id='OpenaireStorage',
+                              bash_command='python3 path/OpenaireTransfSendToDB.py ')
 
 e8_Gardian_storage = BashOperator(dag=dag,
-                              task_id='Gardian_storage',
-                              bash_command='path/GardianTransfSendToDB.py ')
+                              task_id='GardianStorage',
+                              bash_command='python3 path/GardianTransfSendToDB.py ')
 
 
 
